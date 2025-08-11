@@ -41,13 +41,12 @@
             background-color: #f3e8ff;
         }
         .testimonial-card img {
-            width: 50px; /* Set a smaller width for images */
-            height: 50px; /* Set a smaller height for images */
-            border-radius: 50%; /* Circular images */
-            margin-right: 16px; /* Space between image and text */
-        }
-
-
+        width: 50px; /* Set a smaller width for images */
+        height: 50px; /* Set a smaller height for images */
+        border-radius: 50%; /* Circular images */
+        margin-right: 16px; /* Space between image and text */
+        object-fit: cover; /* Maintain aspect ratio and cover the area */
+    }
     </style>
 </head>
 <body class="bg-white text-gray-800">
@@ -169,7 +168,7 @@
                     </div>
                     <p class="text-gray-600 italic mb-6">"The care I received from D-care Agency was exceptional. The staff was professional, compassionate, and dedicated to my recovery."</p>
                     <div class="flex items-center">
-                        <img src="img\image1.jpg" alt="Sarah Johnson" class="border-2 border-dashed">
+                        <img src="img/image1.jpg" alt="Sarah Johnson" class="border-2 border-dashed">
                         <div>
                             <h4 class="font-bold text-primary">Sarah Johnson</h4>
                             <p class="text-gray-600">Patient</p>
@@ -186,7 +185,7 @@
                     </div>
                     <p class="text-gray-600 italic mb-6">"D-care Agency transformed our family's healthcare experience. Their personalized approach made all the difference in my father's recovery."</p>
                     <div class="flex items-center">
-                        <img src="img\image2.jpg" alt="Michael Thompson" class="border-2 border-dashed">
+                        <img src="img/image2.jpg" alt="Michael Thompson" class="border-2 border-dashed">
                         <div>
                             <h4 class="font-bold text-primary">Michael Thompson</h4>
                             <p class="text-gray-600">Family Member</p>
@@ -203,7 +202,7 @@
                     </div>
                     <p class="text-gray-600 italic mb-6">"The nursing team at D-care Agency is outstanding. They provided excellent care and support during my rehabilitation journey."</p>
                     <div class="flex items-center">
-                        <img src="img\image3.jpg" alt="Robert Davis" class="border-2 border-dashed">
+                        <img src="img/image3.jpg" alt="Robert Davis" class="border-2 border-dashed">
                         <div>
                             <h4 class="font-bold text-primary">Robert Davis</h4>
                             <p class="text-gray-600">Patient</p>
@@ -215,10 +214,7 @@
     </section>
 
 
-
-
-
-   <!-- Contact Section -->
+    <!-- Contact Section -->
 <section id="contact" class="py-20">
     <div class="container mx-auto px-4">
         <div class="text-center mb-16">
@@ -244,7 +240,12 @@
                 </form>
             </div>
             <div class="lg:w-1/2 lg:pl-8">
-                <div class="bg-gray-200 border-2 border-dashed rounded-xl w-full h-80 mb-8" id="map"></div>
+                <!-- Replaced Google Maps with an iframe -->
+                <iframe 
+                    src="https://www.google.com/maps?q=123+Healthcare+Avenue,+Medical+District,+City,+State+10001&output=embed"
+                    width="100%" height="320" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                    class="bg-gray-200 border-2 border-dashed rounded-xl w-full h-80 mb-8">
+                </iframe>
                 <div class="bg-white p-8 rounded-lg shadow-lg">
                     <h3 class="text-2xl font-bold text-primary mb-6">Contact Information</h3>
                     <div class="space-y-4">
@@ -281,31 +282,6 @@
     </div>
 </section>
 
-<!-- Google Maps Script -->
-<script>
-    function initMap() {
-        // Specify the location (latitude and longitude)
-        var location = { lat: 40.7128, lng: -74.0060 }; // New York City
-
-        // Create a map object and specify the DOM element for display
-        var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 12,
-            center: location
-        });
-
-        // Create a marker and set its position
-        var marker = new google.maps.Marker({
-            position: location,
-            map: map
-        });
-    }
-</script>
-
-<!-- Load Google Maps API -->
-<script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
-</script>
-
 
     <!-- Footer -->
     <footer class="bg-primary text-white py-12">
@@ -338,5 +314,27 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        // Initialize and add the map
+        function initMap() {
+            // The location of the center (Nottingham, UK)
+            const center = { lat: 52.9548, lng: -1.1581 };
+            // The map, centered at the location
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 12,
+                center: center,
+            });
+            // The marker, positioned at the location
+            const marker = new google.maps.Marker({
+                position: center,
+                map: map,
+            });
+        }
+    </script>
+
+    <script async defer
+        src="https://maps.app.goo.gl/zPeBrkwjtd5ogw1R7">
+    </script>
 </body>
 </html>
