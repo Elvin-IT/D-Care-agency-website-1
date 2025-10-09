@@ -1,0 +1,18 @@
+# Ignore temporary and generated artifacts
+index.wp.html
+index.generated.html
+
+# CSS purge backups
+css/vendor/*.bak
+css/vendor/*.prepurge.bak
+
+# OS / editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

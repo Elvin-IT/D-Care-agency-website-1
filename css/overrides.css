@@ -1,0 +1,238 @@
+/* Overrides to ensure full offline hosting and exact spacing */
+/* 1) Font alias: Map 'Manrope' to local Inter font files so any 'Manrope' usages resolve offline. */
+@font-face {
+  font-family: 'Manrope';
+  src: url('../assets/wp-content/themes/blockskit-medical-health/assets/fonts/inter/Inter-Light.woff2') format('woff2');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Manrope';
+  src: url('../assets/wp-content/themes/blockskit-medical-health/assets/fonts/inter/Inter-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Manrope';
+  src: url('../assets/wp-content/themes/blockskit-medical-health/assets/fonts/inter/Inter-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Manrope';
+  src: url('../assets/wp-content/themes/blockskit-medical-health/assets/fonts/inter/Inter-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Manrope';
+  src: url('../assets/wp-content/themes/blockskit-medical-health/assets/fonts/inter/Inter-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Manrope';
+  src: url('../assets/wp-content/themes/blockskit-medical-health/assets/fonts/inter/Inter-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Manrope';
+  src: url('../assets/wp-content/themes/blockskit-medical-health/assets/fonts/inter/Inter-Bold.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* 2) Spacing corrections to match WordPress page exactly */
+/* Get in Touch heading spacing */
+.blockart-heading.blockart-heading-b05a775a.is-large {
+  /* Ensure consistent top/bottom spacing */
+  margin-top: 60px !important;
+  margin-bottom: 30px !important;
+}
+
+/* Contact section block spacing */
+.blockart-section.blockart-section-6359308a {
+  margin: 110px 0 !important; /* as in WP inline styles */
+}
+
+/* Where are we heading and map spacing */
+.blockart-section.blockart-section-7573d45f {
+  margin: 60px 0 20px !important;
+}
+.blockart-section.blockart-section-78e03b16 {
+  margin: 100px 0 0 0 !important; /* as in WP inline styles */
+}
+
+/* 3) Hero image white circular backdrop (to match WP header side) */
+/* Target the left column group within #home-sec that wraps the hero image */
+#home-sec {
+  position: relative;
+  overflow: hidden; /* ensure circle does not bleed into next sections */
+}
+#home-sec .wp-block-column.is-vertically-aligned-bottom .wp-block-group.has-background {
+  position: relative;
+}
+#home-sec .wp-block-column.is-vertically-aligned-bottom .wp-block-group.has-background::before {
+  content: '';
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  background: #ffffff; /* white circle */
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%); /* perfectly centered behind image */
+  z-index: 0;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+}
+#home-sec .wp-block-column.is-vertically-aligned-bottom figure.wp-block-image img {
+  position: relative;
+  z-index: 1; /* ensure image sits above the circle */
+}
+
+/* Responsive adjustments for the hero circle */
+@media (max-width: 1200px) {
+  #home-sec .wp-block-column.is-vertically-aligned-bottom .wp-block-group.has-background::before {
+    width: 460px;
+    height: 460px;
+    transform: translate(-50%, -50%);
+  }
+}
+@media (max-width: 992px) {
+  #home-sec .wp-block-column.is-vertically-aligned-bottom .wp-block-group.has-background::before {
+    width: 400px;
+    height: 400px;
+    transform: translate(-50%, -52%); /* slight upward nudge to match WP */
+  }
+}
+@media (max-width: 768px) {
+  #home-sec .wp-block-column.is-vertically-aligned-bottom .wp-block-group.has-background::before {
+    width: 320px;
+    height: 320px;
+    transform: translate(-50%, -52%);
+  }
+  /* Offset content below sticky navbar on mobile */
+  #home-sec {
+    margin-top: 72px !important; /* push section below nav */
+    scroll-margin-top: 80px;     /* better in-page anchor positioning */
+  }
+  /* Move the text content down for readability on mobile */
+  #home-sec .wp-block-column.is-vertically-aligned-center {
+    padding-top: 60px !important; /* extra breathing room under nav */
+  }
+  /* Center CTA buttons on mobile */
+  #home-sec .wp-block-buttons.is-layout-flex {
+    justify-content: center !important;
+  }
+  /* Fix mobile heading readability for "D-Homecare Services" */
+  #home-sec h1.wp-block-heading.has-xxxx-large-font-size {
+    font-size: clamp(26px, 7.5vw, 34px) !important;
+    line-height: 1.2 !important;
+    word-break: break-word;
+    hyphens: auto;
+    text-align: center;
+    margin-bottom: 12px;
+    letter-spacing: 0; /* keep clean tracking on small screens */
+  }
+  /* Center intro paragraphs under the heading */
+  #home-sec p.has-medium-font-size,
+  #home-sec p {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 32ch;
+  }
+  /* Add breathing room below CTAs */
+  #home-sec .wp-block-buttons + .wp-block-buttons {
+    margin-top: 8px !important;
+  }
+  /* Improve anchor jumps for common sections under sticky nav */
+  #home-sec, #about_us, #contact-sec, #footer-sec {
+    scroll-margin-top: 80px;
+  }
+}
+/* Ultra-small devices: ensure heading fits comfortably */
+@media (max-width: 360px) {
+  #home-sec h1.wp-block-heading.has-xxxx-large-font-size {
+    font-size: 24px !important;
+    line-height: 1.25 !important;
+  }
+}
+@media (max-width: 480px) {
+  #home-sec .wp-block-column.is-vertically-aligned-bottom .wp-block-group.has-background::before {
+    width: 260px;
+    height: 260px;
+    transform: translate(-50%, -50%);
+  }
+  /* Slightly larger offset for shorter viewports */
+  #home-sec { margin-top: 88px !important; }
+  #home-sec .wp-block-column.is-vertically-aligned-center { padding-top: 56px !important; }
+}
+
+/* Hide hero image and circle on mobile for cleaner header */
+@media (max-width: 768px) {
+  #home-sec .wp-block-column.is-vertically-aligned-bottom {
+    display: none !important;
+  }
+  #home-sec .wp-block-column.is-vertically-aligned-bottom .wp-block-group.has-background::before {
+    content: none !important;
+  }
+  /* Ensure both CTA button groups are centered on mobile */
+  #home-sec .wp-block-group.is-content-justification-left {
+    justify-content: center !important;
+  }
+  #home-sec .wp-block-buttons {
+    width: 100%;
+    justify-content: center !important;
+    gap: 12px;
+  }
+  #home-sec .wp-block-button {
+    margin: 0;
+  }
+  #home-sec .wp-block-button .wp-block-button__link {
+    display: inline-block;
+    text-align: center;
+  }
+}
+
+/* Stack CTA buttons vertically on very small screens */
+@media (max-width: 420px) {
+  #home-sec .wp-block-buttons {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 10px !important;
+  }
+  #home-sec .wp-block-button {
+    width: 100%;
+    max-width: 320px; /* keep a nice width on small phones */
+  }
+  #home-sec .wp-block-button .wp-block-button__link {
+    width: 100%;
+  }
+}
+
+/* Viewport calibrations */
+/* Approx. 1440×900 */
+@media (min-width: 1400px) and (max-width: 1500px) {
+  #home-sec .wp-block-column.is-vertically-aligned-bottom .wp-block-group.has-background::before {
+    width: 500px;
+    height: 500px;
+    transform: translate(-50%, -51%);
+  }
+}
+/* Approx. 1366×768 */
+@media (min-width: 1340px) and (max-width: 1380px) {
+  #home-sec .wp-block-column.is-vertically-aligned-bottom .wp-block-group.has-background::before {
+    width: 480px;
+    height: 480px;
+    transform: translate(-50%, -51%);
+  }
+}
