@@ -236,3 +236,45 @@
     transform: translate(-50%, -51%);
   }
 }
+
+/* 4) Responsive Google Map (Contact section) */
+/* Target the map iframe inside the map section (.blockart-section-78e03b16) */
+.blockart-section.blockart-section-78e03b16 iframe {
+  width: 100% !important;           /* override fixed width="2560" */
+  max-width: 100% !important;
+  display: block;
+  border: 0;
+  aspect-ratio: 16 / 9;             /* keep proportions nicely */
+  height: auto;                      /* let aspect-ratio determine height */
+  border-radius: 0;                  /* squared corners */
+}
+
+/* Give the map a reasonable height on very short viewports */
+@media (max-height: 600px) {
+  .blockart-section.blockart-section-78e03b16 iframe {
+    aspect-ratio: auto;              /* fall back */
+    height: 55vh !important;
+    min-height: 280px;
+  }
+}
+
+/* Fine-tune heights for common mobile sizes */
+@media (max-width: 768px) {
+  .blockart-section.blockart-section-78e03b16 iframe {
+    aspect-ratio: 4 / 3;             /* taller for better legibility */
+    min-height: 340px;               /* ensure enough tap area */
+  }
+}
+
+@media (max-width: 420px) {
+  .blockart-section.blockart-section-78e03b16 iframe {
+    aspect-ratio: 1 / 1;             /* square-ish for very narrow phones */
+    min-height: 360px;               /* maintain usable viewport */
+  }
+}
+
+/* Ensure the column/container doesn't constrain the map awkwardly */
+.blockart-section.blockart-section-78e03b16 .blockart-column-inner,
+.blockart-section.blockart-section-78e03b16 .blockart-column {
+  width: 100% !important;
+}
