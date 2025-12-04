@@ -124,12 +124,12 @@
   }
   /* Offset content below sticky navbar on mobile */
   #home-sec {
-    margin-top: 72px !important; /* push section below nav */
-    scroll-margin-top: 80px;     /* better in-page anchor positioning */
+    margin-top: 0 !important; /* remove gap under sticky nav on mobile */
+    scroll-margin-top: 80px;     /* keep better in-page anchor positioning */
   }
   /* Move the text content down for readability on mobile */
   #home-sec .wp-block-column.is-vertically-aligned-center {
-    padding-top: 60px !important; /* extra breathing room under nav */
+    padding-top: 24px !important; /* modest breathing room under nav */
   }
   /* Center CTA buttons on mobile */
   #home-sec .wp-block-buttons.is-layout-flex {
@@ -176,8 +176,8 @@
     transform: translate(-50%, -50%);
   }
   /* Slightly larger offset for shorter viewports */
-  #home-sec { margin-top: 88px !important; }
-  #home-sec .wp-block-column.is-vertically-aligned-center { padding-top: 56px !important; }
+  #home-sec { margin-top: 0 !important; }
+  #home-sec .wp-block-column.is-vertically-aligned-center { padding-top: 24px !important; }
 }
 
 /* Hide hero image and circle on mobile for cleaner header */
