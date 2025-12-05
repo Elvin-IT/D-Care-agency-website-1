@@ -371,9 +371,24 @@ html { scroll-behavior: smooth; }
   #footer-sec .wp-block-columns {
     padding-top: 26px;
   }
+  /* Add vertical spacing between stacked footer columns */
+  #footer-sec .wp-block-columns > .wp-block-column { margin-top: 16px; }
+  #footer-sec .wp-block-columns > .wp-block-column:first-child { margin-top: 0; }
+  /* Extra space before the Follow us column (3rd) */
+  #footer-sec .wp-block-columns > .wp-block-column:nth-child(3) { margin-top: 24px; }
+}
+
+/* Footer section titles: bold only the first heading paragraph in each column */
+#footer-sec .wp-block-column > p.has-text-align-center:first-of-type {
+  font-weight: 700;
 }
 
 /* Contact section: adjust padding on the right column content wrapper */
 .blockart-section-6359308a .blockart-column-28e5a6c4 .blockart-column-inner.justify-center-md.align-center-md {
-  padding: 90px 30px !important;
+  padding: 72px 30px !important;
+}
+
+/* Contact details: spacing between "D-Homecare Services" and address */
+.blockart-paragraph.blockart-paragraph-d683d975 {
+  margin-top: 1px !important; /* override the -30px inline margin */
 }
