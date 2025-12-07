@@ -392,3 +392,23 @@ html { scroll-behavior: smooth; }
 .blockart-paragraph.blockart-paragraph-d683d975 {
   margin-top: 1px !important; /* override the -30px inline margin */
 }
+
+/* Small purple underline for H2 titles */
+h2::after,
+.blockart-heading::after {
+  content: '';
+  display: block;
+  width: 48px;          /* small line */
+  height: 3px;          /* line thickness */
+  background: #9313d0;  /* site purple */
+  margin: 6px auto 0;   /* space above and center under text */
+  border-radius: 2px;   /* soften edges */
+}
+
+/* Title colors: dark purple */
+#who-we-are,
+#contact-title,
+#about_us,
+#services {
+  color: #7f0fcf !important; /* dark purple consistent with site accents */
+}
