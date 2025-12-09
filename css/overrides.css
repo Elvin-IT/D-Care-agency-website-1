@@ -412,3 +412,15 @@ h2::after,
 #services {
   color: #7f0fcf !important; /* dark purple consistent with site accents */
 }
+
+.footer-copy {
+  font-size: 16px;          /* or 0.75rem */
+  line-height: 1.4;
+  color: #ffffff;
+  letter-spacing: 0.02em;
+}
+
+/* Optional: fluid size similar to modern sites */
+@media (min-width: 480px) {
+  .footer-copy { font-size: clamp(11px, 0.8rem, 13px); }
+}
