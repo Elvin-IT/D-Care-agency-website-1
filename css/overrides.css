@@ -496,6 +496,11 @@ h2::after,
     .whatsapp-float { display: flex !important; }
   }
 
+  /* Very small screens: align WhatsApp button with back-to-top right offset */
+  @media (max-width: 420px) {
+    .whatsapp-float { right: 12px; }
+  }
+
 /* Near footer: add white outline to floating controls to improve contrast */
 body.near-footer .back-to-top {
   outline: 2px solid #ffffff;
