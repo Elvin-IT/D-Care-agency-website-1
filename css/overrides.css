@@ -99,7 +99,27 @@
 }
 
 /* Reduce top padding in the hero section while keeping breathing room below nav */
-#home-sec { padding-top: 48px !important; }
+#home-sec {
+  padding-top: 48px !important;
+  /* Manual adjustment for hero image bottom nudge (positive pushes down) */
+  --hero-image-nudge: 0px;
+}
+
+/* Ensure the left hero image touches the bottom edge of the purple section */
+#home-sec .wp-block-columns { align-items: stretch; }
+#home-sec .wp-block-column.is-vertically-aligned-bottom {
+  display: flex;
+  align-items: flex-end; /* push inner content to the bottom of the column */
+}
+#home-sec .wp-block-column.is-vertically-aligned-bottom > .wp-block-group {
+  align-self: flex-end;
+}
+#home-sec .wp-block-column.is-vertically-aligned-bottom figure.wp-block-image { margin: 0; }
+#home-sec .wp-block-column.is-vertically-aligned-bottom figure.wp-block-image img.wp-image-3009 {
+  display: block;
+  margin: 0;
+  transform: translateY(var(--hero-image-nudge)); /* allow manual fine-tune */
+}
 
 /* Responsive adjustments for the hero circle */
 @media (max-width: 1200px) {
@@ -383,6 +403,17 @@ html { scroll-behavior: smooth; }
   font-weight: 700;
 }
 
+/* Footer Pages links: horizontal layout with spacing */
+#footer-sec .wp-block-columns > .wp-block-column:nth-child(2) .wp-block-group {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+#footer-sec .wp-block-columns > .wp-block-column:nth-child(2) .wp-block-group p {
+  margin: 0;
+}
+
 /* Contact section: adjust padding on the right column content wrapper */
 .blockart-section-6359308a .blockart-column-28e5a6c4 .blockart-column-inner.justify-center-md.align-center-md {
   padding: 72px 30px !important;
@@ -423,4 +454,59 @@ h2::after,
 /* Optional: fluid size similar to modern sites */
 @media (min-width: 480px) {
   .footer-copy { font-size: clamp(11px, 0.8rem, 13px); }
+}
+
+
+  .whatsapp-float {
+    position: fixed;
+    right: 20px;
+    bottom: 90px; /* leaves room above the Back-to-Top button */
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background-color: #6a0dad; /* brand purple */
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+    z-index: 1000;
+    text-decoration: none;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .whatsapp-float:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0,0,0,0.28); }
+  /* Hide inline SVG and show provided icon inside the circle */
+  .whatsapp-float svg { display: none !important; }
+  .whatsapp-float::before {
+    content: "";
+    width: 28px;
+    height: 28px;
+    background: url('../assets/wp-content/uploads/2025/09/whatsapp%20icon.svg') center/contain no-repeat;
+    display: block;
+  }
+  @media (max-width: 640px) {
+    .whatsapp-float { right: 16px; bottom: 80px; width: 52px; height: 52px; }
+  }
+  /* Desktop/tablet: hide standalone WhatsApp icon; Mobile: show icon and hide widget */
+  @media (min-width: 641px) {
+    .whatsapp-float { display: none !important; }
+  }
+  @media (max-width: 640px) {
+    #chat-widget-wa { display: none !important; }
+    .whatsapp-float { display: flex !important; }
+  }
+
+/* Near footer: add white outline to floating controls to improve contrast */
+body.near-footer .back-to-top {
+  outline: 2px solid #ffffff;
+  outline-offset: 0;
+}
+body.near-footer #chat-widget-wa > div {
+  outline: 2px solid #ffffff;
+  outline-offset: 0;
+  border-radius: 20px; /* match widget radius */
+}
+body.near-footer .whatsapp-float {
+  outline: 2px solid #ffffff;
+  outline-offset: 0;
 }
