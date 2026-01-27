@@ -451,9 +451,16 @@ h2::after,
   letter-spacing: 0.02em;
 }
 
-/* Optional: fluid size similar to modern sites */
-@media (min-width: 480px) {
-  .footer-copy { font-size: clamp(11px, 0.8rem, 13px); }
+/* Footer copyright sizing and spacing */
+@media (max-width: 640px) {
+  .footer-copy {
+    font-size: 12px;       /* smaller on mobile for better hierarchy */
+    line-height: 1.45;
+    margin-top: 18px;      /* breathing room below Pages links */
+  }
+}
+@media (min-width: 641px) and (max-width: 1200px) {
+  .footer-copy { font-size: 14px; }
 }
 
 
