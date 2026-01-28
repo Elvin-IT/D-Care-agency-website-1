@@ -331,6 +331,31 @@ html { scroll-behavior: smooth; }
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
 }
 
+/* Mobile-only header hero image above nav */
+#mobile-header-hero { display: none; }
+@media (max-width: 768px) {
+  #mobile-header-hero { display: block; }
+  #mobile-header-hero img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+/* Mobile-only hero media inside #home-sec (image appears above title/buttons on mobile) */
+.mobile-hero-media { display: none; }
+@media (max-width: 768px) {
+  .mobile-hero-media {
+    display: block;
+    margin: 0 0 12px 0; /* add breathing room below the image on mobile */
+  }
+  .mobile-hero-media img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
 /* Ensure ancestor containers don't break sticky positioning */
 .wp-site-blocks > header,
 .wp-site-blocks {
@@ -449,6 +474,7 @@ h2::after,
   line-height: 1.4;
   color: #ffffff;
   letter-spacing: 0.02em;
+  margin-top: 24px;         /* bring it down slightly by default */
 }
 
 /* Footer copyright sizing and spacing */
@@ -456,11 +482,11 @@ h2::after,
   .footer-copy {
     font-size: 12px;       /* smaller on mobile for better hierarchy */
     line-height: 1.45;
-    margin-top: 18px;      /* breathing room below Pages links */
+    margin-top: 28px;      /* more breathing room below Pages links on mobile */
   }
 }
 @media (min-width: 641px) and (max-width: 1200px) {
-  .footer-copy { font-size: 14px; }
+  .footer-copy { font-size: 14px; margin-top: 22px; }
 }
 
 
@@ -500,7 +526,9 @@ h2::after,
   }
   @media (max-width: 640px) {
     #chat-widget-wa { display: none !important; }
-    .whatsapp-float { display: flex !important; }
+    /* Hide WA button by default on mobile; show when body has .wa-visible */
+    .whatsapp-float { display: none !important; }
+    body.wa-visible .whatsapp-float { display: flex !important; }
   }
 
   /* Very small screens: align WhatsApp button with back-to-top right offset */

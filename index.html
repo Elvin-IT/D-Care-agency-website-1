@@ -266,6 +266,9 @@ h1.has-background,h2.has-background,h3.has-background,h4.has-background,h5.has-b
 
 
 <div id="home-sec" class="wp-block-group has-background has-global-padding is-layout-constrained wp-container-core-group-is-layout-ba32ca85 wp-block-group-is-layout-constrained" style="background-color:#810fd3;margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--xx-large);padding-right:var(--wp--preset--spacing--x-small);padding-bottom:0;padding-left:var(--wp--preset--spacing--x-small)">
+<div class="mobile-hero-media" aria-hidden="true">
+  <img src="assets/wp-content/uploads/2025/09/9.png" alt="D-Homecare mobile header" />
+</div>
 <div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-2652ef61 wp-block-columns-is-layout-flex" style="padding-top:var(--wp--preset--spacing--small);padding-bottom:0">
 <div class="wp-block-column is-vertically-aligned-bottom is-layout-flow wp-block-column-is-layout-flow" style="padding-top:0;padding-bottom:0;flex-basis:50%">
 <div class="wp-block-group has-global-padding is-layout-constrained wp-block-group-is-layout-constrained has-background" style="margin-top:0;margin-bottom:0;padding-top:0;padding-bottom:0;background-image:url(&#039;assets/wp-content/themes/blockskit-medical-health/assets/images/banner-img2.png&#039;);background-position:50% 50%;background-repeat:no-repeat;background-size:contain;">
@@ -795,6 +798,24 @@ With our dedicated team, we take a holistic approach to caring for your loved on
         setTimeout(function(){ setYear(); scheduleNextMidnight(); }, delay);
       }
       scheduleNextMidnight();
+    })();
+  </script>
+
+  <script>
+    (function(){
+      var mq = window.matchMedia('(max-width: 640px)');
+      var showAt = 300; // match Back-to-Top behavior
+      function setVisible(on){ document.body.classList.toggle('wa-visible', !!on); }
+      function onScroll(){
+        if(!mq.matches){ setVisible(false); return; }
+        var y = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || 0;
+        setVisible(y > showAt);
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      if(mq.addEventListener){ mq.addEventListener('change', onScroll); } else { mq.addListener(onScroll); }
+      window.addEventListener('orientationchange', onScroll);
+      // Run once on load
+      onScroll();
     })();
   </script>
 
