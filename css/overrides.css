@@ -489,6 +489,10 @@ h2::after,
   .footer-copy { font-size: 14px; margin-top: 22px; }
 }
 
+@media (min-width: 769px) {
+  #home-title { scroll-margin-top: 120px; }
+}
+
 
   .whatsapp-float {
     position: fixed;

@@ -819,6 +819,29 @@ With our dedicated team, we take a holistic approach to caring for your loved on
     })();
   </script>
 
+  <script>
+    (function(){
+      // Desktop-only: make Home link scroll to absolute top to avoid header section height shift
+      var mq = window.matchMedia('(min-width: 769px)');
+      function bind(){
+        var links = document.querySelectorAll('a[href="#home-title"]');
+        links.forEach(function(a){
+          a.addEventListener('click', function(e){
+            if(!mq.matches) return; // only desktop
+            e.preventDefault();
+            window.history.replaceState(null, '', '#home-title');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          });
+        });
+      }
+      if(document.readyState === 'loading'){
+        document.addEventListener('DOMContentLoaded', bind);
+      } else {
+        bind();
+      }
+    })();
+  </script>
+
   <script src="js/wp-nav-shim.js" defer></script>
 </body>
 </html>
