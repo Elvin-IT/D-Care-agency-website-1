@@ -489,6 +489,156 @@ h2::after,
   .footer-copy { font-size: 14px; margin-top: 22px; }
 }
 
+/* Compassionate care section styling */
+.blockart-section-compassionate-care {
+  margin: 80px 0 !important;
+}
+
+.blockart-section-compassionate-care .blockart-section-inner {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+/* Image column - 50% width */
+.blockart-column-compassionate-image {
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+
+/* Text column - 50% width with centered content */
+.blockart-column-compassionate-text {
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+
+.blockart-column-compassionate-text .blockart-column-inner {
+  padding: 40px 30px;
+  text-align: center;
+}
+
+/* Heading styling */
+.blockart-heading-compassionate {
+  color: #7f0fcf !important;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+/* Paragraph styling */
+.blockart-paragraph-compassionate {
+  color: #333;
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Image styling */
+.blockart-image-compassionate img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Why Us: text to the right of wp-image-3006 */
+.whyus-image-row {
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 14px;
+}
+
+.whyus-image-row-text {
+  flex: 0 1 220px;
+  max-width: 220px;
+  padding-right: 6px;
+}
+
+.whyus-image-row-text p {
+  font-size: 16px;
+  color: #7f0fcf;
+  letter-spacing: 0.01em;
+}
+
+.whyus-figure-with-caption {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 256px;
+}
+
+.whyus-figure-with-caption.whyus-figure-with-caption-3001 {
+  max-width: 138px;
+}
+
+.whyus-image-caption {
+  margin-top: 10px;
+  padding: 0 6px;
+  text-align: center;
+}
+
+.whyus-image-caption p {
+  font-size: 16px;
+  color: #7f0fcf;
+  letter-spacing: 0.01em;
+}
+
+.whyus-images-row {
+  flex-wrap: wrap;
+}
+
+.whyus-bottom-caption {
+  flex: 0 0 100%;
+  margin-top: 10px;
+  padding-left: 0;
+  text-align: left;
+}
+
+.whyus-bottom-caption p {
+  font-size: 16px;
+  color: #7f0fcf;
+  letter-spacing: 0.01em;
+}
+
+@media (max-width: 768px) {
+  .whyus-image-row {
+    flex-wrap: wrap;
+  }
+
+  .whyus-image-row-text {
+    max-width: 100%;
+    padding-left: 12px;
+  }
+
+  .whyus-image-row-text p {
+    font-size: 16px;
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .blockart-section-compassionate-care .blockart-section-inner {
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .blockart-column-compassionate-image,
+  .blockart-column-compassionate-text {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  
+  .blockart-heading-compassionate {
+    font-size: 2rem;
+  }
+  
+  .blockart-paragraph-compassionate {
+    font-size: 1.1rem;
+  }
+}
+
 @media (min-width: 769px) {
   #home-title { scroll-margin-top: 120px; }
 }
