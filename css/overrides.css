@@ -753,3 +753,14 @@ body.near-footer .whatsapp-float {
   outline: 2px solid #ffffff;
   outline-offset: 0;
 }
+
+/* Responsive contact phone number */
+@media (min-width: 359px) {
+  .contact-line .phone-number-wrapper br {
+    display: none;
+  }
+  .contact-line .phone-number-wrapper::before {
+    content: "  ";
+    color: white;
+  }
+}
