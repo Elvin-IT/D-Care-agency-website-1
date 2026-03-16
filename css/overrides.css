@@ -639,6 +639,34 @@ h2::after,
   }
 }
 
+/* Contact line responsive styling */
+@media (max-width: 480px) {
+  .contact-line {
+    font-size: 14px;
+    line-height: 1.4;
+    margin-bottom: 8px;
+  }
+  
+  .contact-line br {
+    display: none;
+  }
+  
+  .phone-number-wrapper {
+    display: inline-block;
+    margin-top: 4px;
+    font-weight: 600;
+    color: #7f0fcf;
+    white-space: nowrap;
+  }
+  
+  /* Ensure proper spacing in contact sections */
+  .blockart-paragraph-ee277138.contact-line,
+  .has-text-align-center.contact-line {
+    text-align: left;
+    padding: 0 4px;
+  }
+}
+
 /* Mobile-specific layout for Why Us section at 446x664 and below */
 @media (max-width: 446px) {
   .whyus-images-row {
