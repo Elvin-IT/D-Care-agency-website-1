@@ -846,6 +846,11 @@ body {
     padding-bottom: 7px !important;
   }
   
+  /* Adjust header image for small mobile screens */
+  .mobile-hero-media img {
+    margin-top: 172px !important;
+  }
+  
   body {
     padding-top: 50px;
   }
