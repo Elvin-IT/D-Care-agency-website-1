@@ -966,19 +966,39 @@ body {
     opacity: 1 !important;
     padding: 12px 24px !important;
     font-size: 14px !important;
-    background-color: #ac6bff !important;
-    color: #ffffff !important;
+    color: #6a0dad !important;
     text-decoration: none !important;
-    border: 2px solid #ac6bff !important;
+    border: none !important;
     border-radius: 50px !important;
     position: relative !important;
     z-index: 10 !important;
     transition: all 0.3s ease !important;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1) !important;
   }
 
   .wp-block-button__link:hover {
-    background-color: #9b5ce6 !important;
-    border-color: #9b5ce6 !important;
+    background-color: #f8f9fa !important;
+    transform: translateY(-2px) !important;
+  }
+
+  /* Contact Us button specific styling in mobile view */
+  .wp-block-button.is-style-outline.is-style-outline--2 .wp-block-button__link {
+    background-color: #6a0dad !important;
+    color: #ffffff !important;
+    border: none !important;
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  /* Remove background from button container in mobile */
+  .wp-container-core-group-is-layout-4d53bd30 {
+    background-color: transparent !important;
+    background: none !important;
+  }
+
+  .wp-block-button.is-style-outline.is-style-outline--2 .wp-block-button__link:hover {
+    background-color: #5a0bbd !important;
     transform: translateY(-2px) !important;
   }
 
@@ -1195,19 +1215,40 @@ body {
     opacity: 1 !important;
     padding: 12px 24px !important;
     font-size: 16px !important;
-    background-color: #ac6bff !important;
-    color: #ffffff !important;
+    background-color: #ffffff !important;
+    color: #6a0dad !important;
     text-decoration: none !important;
-    border: 2px solid #ac6bff !important;
+    border: none !important;
     border-radius: 50px !important;
     position: relative !important;
     z-index: 10 !important;
     transition: all 0.3s ease !important;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1) !important;
   }
 
   .wp-block-button__link:hover {
-    background-color: #9b5ce6 !important;
-    border-color: #9b5ce6 !important;
+    background-color: #f8f9fa !important;
+    transform: translateY(-2px) !important;
+  }
+
+  /* Contact Us button specific styling in tablet view */
+  .wp-block-button.is-style-outline.is-style-outline--2 .wp-block-button__link {
+    background-color: #6a0dad !important;
+    color: #ffffff !important;
+    border: none !important;
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  /* Remove background from button container in tablet */
+  .wp-container-core-group-is-layout-4d53bd30 {
+    background-color: transparent !important;
+    background: none !important;
+  }
+
+  .wp-block-button.is-style-outline.is-style-outline--2 .wp-block-button__link:hover {
+    background-color: #5a0bbd !important;
     transform: translateY(-2px) !important;
   }
 
