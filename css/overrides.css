@@ -639,30 +639,736 @@ h2::after,
   }
 }
 
+/* Sticky Navigation - Always Visible */
+#nav_bar.wp-block-group.bk-header-transparent {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  width: 100%;
+  background-color: #ac6bff !important;
+}
+
+/* Add padding to body to prevent content from hiding under fixed nav */
+body {
+  padding-top: 80px;
+}
+
+  /* Tablet and Mobile adjustments for specific sections */
+  .wp-block-group.alignfull.has-global-padding.is-layout-constrained.wp-container-core-group-is-layout-cb8de954.wp-block-group-is-layout-constrained {
+    margin-top: -12px !important;
+  }
+
+  .wp-block-column.has-accent-background-color.has-background.is-layout-flow.wp-block-column-is-layout-flow {
+    margin-top: 41px !important;
+  }
+
+  .wp-block-group.alignwide.is-content-justification-center.is-layout-flex.wp-container-core-group-is-layout-c124d1c4.wp-block-group-is-layout-flex {
+    margin-top: 38px !important;
+  }
+
+  /* Endless purple footer background in mobile view */
+  .wp-block-group.alignwide.is-content-justification-center.is-layout-flex.wp-container-core-group-is-layout-c124d1c4.wp-block-group-is-layout-flex {
+    width: 100vw !important;
+    margin-left: calc(50% - 50vw) !important;
+    margin-right: calc(50% - 50vw) !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  /* Adjust margins for wp-container-core-group-is-layout-48a3dbfb in mobile view */
+  .wp-block-group.alignfull.has-background-color.has-white-color.has-text-color.has-background.has-link-color.is-vertical.is-content-justification-stretch.is-layout-flex.wp-container-core-group-is-layout-48a3dbfb.wp-block-group-is-layout-flex {
+    margin-left: -34px !important;
+    margin-right: -34px !important;
+    margin-bottom: -37px !important;
+  }
+
+  /* Mobile view adjustments (max-width: 768px) */
+@media (max-width: 768px) {
+  #nav_bar.wp-block-group.bk-header-transparent {
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+  }
+  
+  body {
+    padding-top: 60px;
+  }
+  
+  /* Adjust logo size on mobile */
+  .custom-logo {
+    max-width: 50px;
+    height: auto;
+  }
+  
+  /* Add top margin to mobile header image to prevent nav overlap */
+  .mobile-hero-media img {
+    margin-top: 120px !important;
+  }
+  
+  /* Fix mobile header image positioning */
+  .mobile-hero-media {
+    margin-top: 80px !important;
+    padding-top: 20px !important;
+  }
+  
+  /* Consistent mobile spacing for all sections */
+  .blockart-section {
+    margin-bottom: 40px !important;
+  }
+  
+  .blockart-column-inner {
+    padding: 25px !important;
+  }
+  
+  .wp-block-group.has-global-padding {
+    padding: 21px 20px !important;
+  }
+  
+  .wp-block-columns {
+    margin-bottom: 30px !important;
+  }
+  
+  /* WHO WE ARE section spacing */
+  #who-we-are {
+    margin-bottom: 40px !important;
+    padding: 30px 20px !important;
+  }
+  
+  /* Services section spacing */
+  #services {
+    margin-top: 40px !important;
+    margin-bottom: 40px !important;
+    padding: 30px 20px !important;
+  }
+  
+  /* Contact section spacing */
+  #contact-title {
+    margin-top: 50px !important;
+    margin-bottom: 30px !important;
+    padding: 30px 20px !important;
+  }
+  
+  /* Reduce contact section spacing */
+  .blockart-section.blockart-section-6359308a {
+    margin-top: 20px !important;
+    margin-bottom: 20px !important;
+    padding: 20px 15px !important;
+  }
+  
+  /* Footer section spacing */
+  footer {
+    margin-top: 40px !important;
+    padding: 30px 20px !important;
+  }
+  
+  /* Hero section spacing */
+  #home-sec {
+    padding-bottom: 40px !important;
+  }
+  
+  /* Ensure proper spacing between sections */
+  .blockart-section + .blockart-section {
+    margin-top: 40px !important;
+  }
+  
+  .wp-block-group + .wp-block-group {
+    margin-top: 30px !important;
+  }
+  
+  /* Center contact details on mobile/tablet */
+  .contact-line {
+    text-align: center !important;
+  }
+  
+  .phone-number-wrapper {
+    color: #ffffff !important;
+    font-family: 'Manrope', sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+  }
+  
+  /* Allow line breaks in footer contact section for tablet/mobile */
+  .has-text-align-center.contact-line br {
+    display: block !important;
+    margin-bottom: 8px;
+  }
+  
+  /* Hide line breaks in main contact section but keep them in footer */
+  .blockart-paragraph-ee277138.contact-line br {
+    display: none;
+  }
+  
+  /* Add left and right padding to footer-copy in mobile view */
+  .footer-copy {
+    padding-left: 78px !important;
+    padding-right: 78px !important;
+  }
+  
+  /* Change padding bottom to 1px for blockart-section-aecf0ee7 in mobile view */
+  .blockart-section.blockart-section-aecf0ee7 {
+    padding-bottom: 1px !important;
+  }
+  
+  /* Change top margin to -33px for wp-container-core-group-is-layout-f5f3bcb8 in mobile view */
+  .wp-block-group.has-global-padding.is-layout-constrained.wp-container-core-group-is-layout-f5f3bcb8.wp-block-group-is-layout-constrained.has-background {
+    margin-top: -33px !important;
+  }
+  
+  /* Add top margin to whyus-mobile-replacement in mobile view */
+  .whyus-mobile-replacement {
+    margin-top: -125px !important;
+  }
+  
+  /* Change bottom margin to -4px for wp-container-core-group-is-layout-cb8de954 in mobile view */
+  .wp-block-group.alignfull.has-global-padding.is-layout-constrained.wp-container-core-group-is-layout-cb8de954.wp-block-group-is-layout-constrained {
+    margin-bottom: -4px !important;
+  }
+}
+
+/* Small mobile adjustments */
+@media (max-width: 480px) {
+  #nav_bar.wp-block-group.bk-header-transparent {
+    padding-top: 6px !important;
+    padding-bottom: 6px !important;
+  }
+  
+  body {
+    padding-top: 50px;
+  }
+  
+  .custom-logo {
+    max-width: 45px;
+  }
+  
+  /* Consistent small mobile spacing */
+  .blockart-section {
+    margin-bottom: 25px !important;
+  }
+  
+  .blockart-column-inner {
+    padding: 15px !important;
+  }
+  
+  .wp-block-group.has-global-padding {
+    padding: 20px 15px !important;
+  }
+  
+  .wp-block-columns {
+    margin-bottom: 20px !important;
+  }
+  
+  /* Tighter spacing for smaller screens */
+  #who-we-are {
+    margin-bottom: 15px !important;
+  }
+  
+  #services {
+    margin-top: 25px !important;
+    margin-bottom: 25px !important;
+  }
+  
+  #contact-title {
+    margin-top: 30px !important;
+    margin-bottom: 20px !important;
+  }
+  
+  /* Paragraph spacing on small mobile */
+  .has-medium-font-size {
+    line-height: 1.5 !important;
+    margin-bottom: 15px !important;
+  }
+  
+  /* Fix service section purple circles for mobile */
+  .wp-container-core-group-is-layout-ce8a117f {
+    width: 65px !important;
+    height: 65px !important;
+    min-width: 65px !important;
+    min-height: 65px !important;
+    max-width: 65px !important;
+    max-height: 65px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 !important;
+  }
+  
+  .wp-container-core-group-is-layout-ce8a117f img {
+    width: 35px !important;
+    height: 35px !important;
+  }
+  
+  /* Fix service section grid layout for mobile - 1 column */
+  .wp-block-columns.is-layout-flex.wp-container-core-columns-is-layout-1.wp-block-columns-is-layout-flex {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 15px !important;
+    width: 100% !important;
+  }
+  
+  /* Make service cards proper width and spacing for mobile */
+  .wp-block-column.is-layout-flow.wp-block-column-is-layout-flow {
+    width: 100% !important;
+    margin-bottom: 15px !important;
+  }
+  
+  /* Make service section boxes consistent for mobile */
+  .wp-block-group.has-border-color.has-accent-text-background-color.has-background.has-global-padding {
+    min-height: 280px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    padding-bottom: 20px !important;
+    overflow: visible !important;
+    width: 100% !important;
+  }
+  
+  /* Force 'Learn More' buttons to be visible for mobile */
+  .wp-block-group.has-border-color.has-accent-text-background-color.has-background.has-global-padding .wp-block-buttons,
+  .wp-block-group.has-border-color.has-pale-cyan-blue-border-color.has-accent-text-background-color.has-background.has-global-padding .wp-block-buttons,
+  .wp-block-group .wp-block-buttons {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    margin-top: auto !important;
+    justify-content: center !important;
+    height: auto !important;
+    min-height: 40px !important;
+    position: relative !important;
+    z-index: 10 !important;
+  }
+
+  /* Force button and button link visibility for mobile */
+  .wp-block-button,
+  .wp-block-button__link,
+  .wp-block-group.has-accent-text-background-color .wp-block-button__link {
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    padding: 12px 24px !important;
+    font-size: 14px !important;
+    background-color: #ac6bff !important;
+    color: #ffffff !important;
+    text-decoration: none !important;
+    border: 2px solid #ac6bff !important;
+    border-radius: 50px !important;
+    position: relative !important;
+    z-index: 10 !important;
+    transition: all 0.3s ease !important;
+  }
+
+  .wp-block-button__link:hover {
+    background-color: #9b5ce6 !important;
+    border-color: #9b5ce6 !important;
+    transform: translateY(-2px) !important;
+  }
+
+  /* Make pale-cyan-blue border boxes consistent for mobile */
+  .wp-block-group.has-border-color.has-pale-cyan-blue-border-color.has-accent-text-background-color.has-background.has-global-padding {
+    border-color: #3693eb45 !important;
+    border-width: 2px !important;
+    border-radius: 20px !important;
+    margin-top: -10px !important;
+    padding-top: var(--wp--preset--spacing--medium) !important;
+    padding-right: var(--wp--preset--spacing--small) !important;
+    padding-bottom: 20px !important;
+    padding-left: var(--wp--preset--spacing--small) !important;
+    min-height: 280px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    overflow: visible !important;
+    width: 100% !important;
+  }
+}
+
+/* Large screen adjustments - maintain desktop nav style */
+@media (min-width: 1024px) {
+  body {
+    padding-top: 90px;
+  }
+}
+
+/* Tablet view adjustments - use desktop nav style (769px to 1023px) */
+@media (min-width: 769px) and (max-width: 1023px) {
+  /* Reorder sections - move services below why us */
+  #services {
+    order: 2 !important;
+  }
+  
+  #who-we-are {
+    order: 1 !important;
+  }
+  
+  /* Change padding for tablet view */
+  .wp-block-group.has-global-padding {
+    padding: 23px 22px !important;
+  }
+  
+  /* Fix service section purple circles for tablet */
+  .wp-container-core-group-is-layout-ce8a117f {
+    width: 70px !important;
+    height: 70px !important;
+    min-width: 70px !important;
+    min-height: 70px !important;
+    max-width: 70px !important;
+    max-height: 70px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  
+  .wp-container-core-group-is-layout-ce8a117f img {
+    width: 35px !important;
+    height: 35px !important;
+  }
+    /* Tablet view specific fixes (768px to 1024px) */
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .wp-container-core-group-is-layout-ce8a117f {
+      width: 80px !important;
+      height: 80px !important;
+      min-width: 80px !important;
+      min-height: 80px !important;
+      max-width: 80px !important;
+      max-height: 80px !important;
+      border-radius: 50% !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+    }
+    
+    .wp-container-core-group-is-layout-ce8a117f img {
+      width: 40px !important;
+      height: 40px !important;
+    }
+    
+    /* Add left and right margin to center the about section in tablet view */
+    .wp-block-group.has-global-padding.is-layout-constrained.wp-container-core-group-is-layout-f5f3bcb8.wp-block-group-is-layout-constrained.has-background {
+      margin-left: 34px !important;
+      margin-right: 34px !important;
+    }
+    
+    /* Add bottom margin to wp-container-core-group-is-layout-cb8de954 in tablet view */
+    .wp-block-group.alignfull.has-global-padding.is-layout-constrained.wp-container-core-group-is-layout-cb8de954.wp-block-group-is-layout-constrained {
+      margin-bottom: -128px !important;
+    }
+    
+    /* Add top margin to wp-container-core-group-is-layout-c124d1c4 in tablet view */
+    .wp-block-group.alignwide.is-content-justification-center.is-layout-flex.wp-container-core-group-is-layout-c124d1c4.wp-block-group-is-layout-flex {
+      margin-top: 38px !important;
+    }
+    
+    /* Endless purple footer background in tablet view */
+    .wp-block-group.alignwide.is-content-justification-center.is-layout-flex.wp-container-core-group-is-layout-c124d1c4.wp-block-group-is-layout-flex {
+      width: 100vw !important;
+      margin-left: calc(50% - 50vw) !important;
+      margin-right: calc(50% - 50vw) !important;
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+      padding-bottom: 0 !important;
+    }
+    
+    /* Adjust margins for wp-container-core-group-is-layout-48a3dbfb in tablet view */
+    .wp-block-group.alignfull.has-background-color.has-white-color.has-text-color.has-background.has-link-color.is-vertical.is-content-justification-stretch.is-layout-flex.wp-container-core-group-is-layout-48a3dbfb.wp-block-group-is-layout-flex {
+      margin-left: -34px !important;
+      margin-right: -34px !important;
+      margin-bottom: -37px !important;
+    }
+    
+    /* Change padding bottom to 1px for blockart-section-aecf0ee7 in tablet view */
+    .blockart-section.blockart-section-aecf0ee7 {
+      padding-bottom: 1px !important;
+    }
+    
+    /* Change top margin to -33px for wp-container-core-group-is-layout-f5f3bcb8 in tablet view */
+    .wp-block-group.has-global-padding.is-layout-constrained.wp-container-core-group-is-layout-f5f3bcb8.wp-block-group-is-layout-constrained.has-background {
+      margin-top: -33px !important;
+    }
+    
+    /* Change top margin to 60px for wp-container-core-group-is-layout-026edd39 in tablet view */
+    .wp-block-group.has-border-color.has-accent-text-background-color.has-background.has-global-padding.is-layout-constrained.wp-container-core-group-is-layout-026edd39.wp-block-group-is-layout-constrained {
+      margin-top: 60px !important;
+    }
+  }
+  
+  /* Make D-Homecare Services title one line */
+  #home-title {
+    font-size: 4vw !important;
+    line-height: 1.1 !important;
+    white-space: nowrap !important;
+    max-width: 100% !important;
+  }
+  
+  /* Responsive heading sizes for tablet */
+  .wp-block-heading.has-accent-text-color.has-text-color.has-link-color.has-manrope-font-family.has-xxxx-large-font-size {
+    font-size: 4vw !important;
+  }
+  
+  .wp-block-heading.has-manrope-font-family.has-xxx-large-font-size {
+    font-size: 3.5vw !important;
+  }
+  
+  .blockart-heading.blockart-heading-b05a775a.is-large {
+    font-size: 3vw !important;
+  }
+  
+  .blockart-heading.blockart-heading-3153b1e8 {
+    font-size: 2.5vw !important;
+  }
+  
+  /* Fix service section grid layout for tablet - 2 columns */
+  .wp-block-columns.is-layout-flex.wp-container-core-columns-is-layout-1.wp-block-columns-is-layout-flex {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px !important;
+    width: 100% !important;
+  }
+  
+  /* Make service cards proper width and spacing */
+  .wp-block-column.is-layout-flow.wp-block-column-is-layout-flow {
+    width: 100% !important;
+    margin-bottom: 20px !important;
+  }
+  
+  /* Make service section boxes consistent and restore Learn More buttons */
+  .wp-block-group.has-border-color.has-accent-text-background-color.has-background.has-global-padding {
+    min-height: 320px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    padding-bottom: 30px !important;
+    overflow: visible !important;
+    width: 100% !important;
+  }
+  
+  /* Force 'Learn More' buttons to be visible with aggressive overrides */
+  .wp-block-group.has-border-color.has-accent-text-background-color.has-background.has-global-padding .wp-block-buttons,
+  .wp-block-group.has-border-color.has-pale-cyan-blue-border-color.has-accent-text-background-color.has-background.has-global-padding .wp-block-buttons,
+  .wp-block-group .wp-block-buttons {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    margin-top: auto !important;
+    justify-content: center !important;
+    height: auto !important;
+    min-height: 40px !important;
+    position: relative !important;
+    z-index: 10 !important;
+  }
+
+  /* Force button and button link visibility */
+  .wp-block-button,
+  .wp-block-button__link,
+  .wp-block-group.has-accent-text-background-color .wp-block-button__link {
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    padding: 12px 24px !important;
+    font-size: 16px !important;
+    background-color: #ac6bff !important;
+    color: #ffffff !important;
+    text-decoration: none !important;
+    border: 2px solid #ac6bff !important;
+    border-radius: 50px !important;
+    position: relative !important;
+    z-index: 10 !important;
+    transition: all 0.3s ease !important;
+  }
+
+  .wp-block-button__link:hover {
+    background-color: #9b5ce6 !important;
+    border-color: #9b5ce6 !important;
+    transform: translateY(-2px) !important;
+  }
+
+  /* Make pale-cyan-blue border boxes consistent with others */
+  .wp-block-group.has-border-color.has-pale-cyan-blue-border-color.has-accent-text-background-color.has-background.has-global-padding {
+    border-color: #3693eb45 !important;
+    border-width: 2px !important;
+    border-radius: 20px !important;
+    margin-top: -10px !important;
+    padding-top: var(--wp--preset--spacing--medium) !important;
+    padding-right: var(--wp--preset--spacing--small) !important;
+    padding-bottom: 30px !important;
+    padding-left: var(--wp--preset--spacing--small) !important;
+    min-height: 320px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    overflow: visible !important;
+    width: 100% !important;
+  }
+  
+  /* Ensure all service boxes have same structure */
+  .wp-container-core-group-is-layout-fc17ecc1 {
+    margin-bottom: 15px !important;
+  }
+  
+  /* Center contact details box in tablet view */
+  .blockart-section.blockart-section-6359308a {
+    text-align: center !important;
+  }
+  
+  .blockart-section.blockart-section-6359308a .blockart-container {
+    display: flex !important;
+    justify-content: center !important;
+  }
+  
+  .blockart-section.blockart-section-6359308a .blockart-section-inner {
+    display: flex !important;
+    justify-content: center !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+  }
+  
+  /* Hide contact image in tablet view */
+  .blockart-column-96ed273e {
+    display: none !important;
+  }
+  
+  /* Make contact details column full width and centered */
+  .blockart-column-28e5a6c4 {
+    flex-basis: 100% !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+  
+  /* Specifically target the contact column inner */
+  .blockart-column-28e5a6c4 .blockart-column-inner {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    width: 100% !important;
+    max-width: 600px !important;
+    margin: 0 auto !important;
+    position: relative !important;
+    left: 0 !important;
+    right: 0 !important;
+    transform: none !important;
+  }
+  
+  /* Force centering with higher specificity */
+  .blockart-section-6359308a .blockart-column-28e5a6c4 .blockart-column-inner.justify-center-md.align-center-md {
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    float: none !important;
+    position: relative !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+  }
+  
+  /* Ensure contact details are centered */
+  .blockart-column-28e5a6c4 .blockart-column-inner > * {
+    text-align: center !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+  }
+  
+  /* Remove purple border and make it full width */
+  .blockart-section.blockart-section-6359308a {
+    border: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+  }
+  
+  /* Keep desktop navigation style for tablet */
+  .wp-block-navigation__responsive-container-open {
+    display: none !important;
+  }
+  
+  /* Show desktop navigation items */
+  .wp-block-column.uag-hide-mob {
+    display: block !important;
+    flex-basis: 20% !important;
+    max-width: 20% !important;
+  }
+  
+  /* Adjust nav layout for tablet */
+  .wp-block-column[style*="flex-basis:55%"] {
+    flex-basis: 80% !important;
+    justify-content: center !important;
+  }
+  
+  /* Fix navigation bar spacing */
+  .wp-block-group.is-content-justification-space-between.is-nowrap.is-layout-flex.wp-container-core-group-is-layout-30ac4ec8.wp-block-group-is-layout-flex {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    gap: 0 !important;
+  }
+  
+  /* Hide Get Appointment button in tablet view */
+  .wp-block-button.is-style-bk-button-secondary {
+    display: none !important;
+  }
+  
+  /* Ensure navigation links have proper spacing */
+  .wp-block-navigation-item a {
+    font-size: 2.2vw !important;
+    padding: 10px 15px !important;
+    white-space: nowrap !important;
+    color: #ffffff !important;
+    text-decoration: none !important;
+    display: inline-block !important;
+  }
+
+  .wp-block-navigation-item a:hover {
+    opacity: 0.8;
+  }
+  
+  /* Ensure navigation container uses full width */
+  .wp-block-column.is-vertically-aligned-center.is-layout-flow.wp-block-column-is-layout-flow[style*="flex-basis:55%"] {
+    display: flex !important;
+    align-items: center !important;
+  }
+}
+
 /* Contact line responsive styling */
 @media (max-width: 480px) {
   .contact-line {
     font-size: 14px;
     line-height: 1.4;
     margin-bottom: 8px;
+    text-align: center !important;
   }
   
-  .contact-line br {
+  /* Allow line breaks in footer contact section */
+  .has-text-align-center.contact-line br {
+    display: block !important;
+    margin-bottom: 8px;
+  }
+  
+  /* Hide line breaks in main contact section but keep them in footer */
+  .blockart-paragraph-ee277138.contact-line br {
     display: none;
   }
   
   .phone-number-wrapper {
     display: inline-block;
     margin-top: 4px;
-    font-weight: 600;
-    color: #7f0fcf;
+    font-weight: 600 !important;
+    color: #ffffff !important;
+    font-family: 'Manrope', sans-serif !important;
+    font-size: 14px !important;
     white-space: nowrap;
   }
   
   /* Ensure proper spacing in contact sections */
   .blockart-paragraph-ee277138.contact-line,
   .has-text-align-center.contact-line {
-    text-align: left;
+    text-align: center !important;
     padding: 0 4px;
   }
 }

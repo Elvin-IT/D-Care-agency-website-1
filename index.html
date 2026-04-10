@@ -564,7 +564,9 @@ With our dedicated team, we take a holistic approach to caring for your loved on
 </div>
 </div>
 
-<div class="wp-block-group has-global-padding is-layout-constrained wp-container-core-group-is-layout-f5f3bcb8 wp-block-group-is-layout-constrained"></div>
+<div class="wp-block-group has-global-padding is-layout-constrained wp-container-core-group-is-layout-f5f3bcb8 wp-block-group-is-layout-constrained">
+  <img src="assets/wp-content/uploads/2025/09/11.png" alt="D-Homecare tablet image" class="tablet-replacement-image" style="display: none;" />
+</div>
 </div>
 </div>
 
@@ -615,7 +617,7 @@ With our dedicated team, we take a holistic approach to caring for your loved on
 
 
 
-<p class="blockart-paragraph blockart-paragraph-b186e33c">    Email: info@dhomecare.com</p>
+<p class="blockart-paragraph blockart-paragraph-b186e33c">    Email: contact@dhomecareservices.com</p>
 </div></div>
 </div></div></div>
 
@@ -641,7 +643,7 @@ With our dedicated team, we take a holistic approach to caring for your loved on
 
 
 
-<p class="has-text-align-center contact-line">Area 49 Sector 5, New Shire<br>Phone & WhatsApp:<span class="phone-number-wrapper"> +265 985 271 023</span><br>info@dhomecare.com</p>
+<p class="has-text-align-center contact-line">Area 49 Sector 5, New Shire<br>Phone & WhatsApp:<span class="phone-number-wrapper"> +265 985 271 023</span><br>contact@dhomecareservices.com</p>
 
 
 
@@ -725,6 +727,18 @@ With our dedicated team, we take a holistic approach to caring for your loved on
     window.addEventListener('scroll', onScroll, { passive: true });
     // Run once on load
     onScroll();
+    
+    // Add click handler to scroll to header
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      var header = document.querySelector('header.wp-block-template-part');
+      if (header) {
+        header.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        // Fallback to window scroll top
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    });
   })();
 </script>
 
