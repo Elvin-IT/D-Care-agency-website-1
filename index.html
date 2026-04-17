@@ -894,16 +894,9 @@ With our dedicated team, we take a holistic approach to caring for your loved on
   const COOKIE_CONSENT_KEY = 'dhomecare_cookie_consent';
   const COOKIE_SETTINGS_KEY = 'dhomecare_cookie_settings';
   
-  // DOM elements
-  const cookieBanner = document.getElementById('cookie-consent');
-  const cookieSettingsModal = document.getElementById('cookie-settings-modal');
-  const acceptBtn = document.getElementById('cookie-accept');
-  const rejectBtn = document.getElementById('cookie-reject');
-  const settingsBtn = document.getElementById('cookie-settings');
-  const modalCloseBtn = document.getElementById('cookie-modal-close');
-  const saveSettingsBtn = document.getElementById('cookie-save-settings');
-  const analyticsCheckbox = document.getElementById('cookie-analytics');
-  const marketingCheckbox = document.getElementById('cookie-marketing');
+  // DOM elements (will be set after DOM is ready)
+  let cookieBanner, cookieSettingsModal, acceptBtn, rejectBtn, settingsBtn;
+  let modalCloseBtn, saveSettingsBtn, analyticsCheckbox, marketingCheckbox;
   
   // Check if user has already made a choice
   function hasUserConsent() {
@@ -914,17 +907,6 @@ With our dedicated team, we take a holistic approach to caring for your loved on
   function getSavedSettings() {
     const settings = localStorage.getItem(COOKIE_SETTINGS_KEY);
     return settings ? JSON.parse(settings) : { analytics: false, marketing: false };
-  }
-  
-  // Show cookie banner if no consent exists
-  function showBannerIfNeeded() {
-    if (!hasUserConsent()) {
-      cookieBanner.classList.add('show');
-    } else {
-      // Apply saved consent settings
-      const settings = getSavedSettings();
-      updateConsent(settings.analytics, settings.marketing);
-    }
   }
   
   // Update gtag consent mode
@@ -983,19 +965,47 @@ With our dedicated team, we take a holistic approach to caring for your loved on
     hideSettings();
   }
   
-  // Event listeners
-  acceptBtn.addEventListener('click', acceptAll);
-  rejectBtn.addEventListener('click', rejectAll);
-  settingsBtn.addEventListener('click', showSettings);
-  modalCloseBtn.addEventListener('click', hideSettings);
-  saveSettingsBtn.addEventListener('click', saveSettings);
-  
-  // Close modal when clicking outside
-  cookieSettingsModal.addEventListener('click', function(e) {
-    if (e.target === cookieSettingsModal) {
-      hideSettings();
+  // Show cookie banner if no consent exists
+  function showBannerIfNeeded() {
+    // Get DOM elements
+    cookieBanner = document.getElementById('cookie-consent');
+    cookieSettingsModal = document.getElementById('cookie-settings-modal');
+    acceptBtn = document.getElementById('cookie-accept');
+    rejectBtn = document.getElementById('cookie-reject');
+    settingsBtn = document.getElementById('cookie-settings');
+    modalCloseBtn = document.getElementById('cookie-modal-close');
+    saveSettingsBtn = document.getElementById('cookie-save-settings');
+    analyticsCheckbox = document.getElementById('cookie-analytics');
+    marketingCheckbox = document.getElementById('cookie-marketing');
+    
+    // Check if elements exist
+    if (!cookieBanner) {
+      console.error('Cookie banner element not found');
+      return;
     }
-  });
+    
+    // Add event listeners
+    acceptBtn.addEventListener('click', acceptAll);
+    rejectBtn.addEventListener('click', rejectAll);
+    settingsBtn.addEventListener('click', showSettings);
+    modalCloseBtn.addEventListener('click', hideSettings);
+    saveSettingsBtn.addEventListener('click', saveSettings);
+    
+    // Close modal when clicking outside
+    cookieSettingsModal.addEventListener('click', function(e) {
+      if (e.target === cookieSettingsModal) {
+        hideSettings();
+      }
+    });
+    
+    // Show banner or apply saved settings
+    if (!hasUserConsent()) {
+      cookieBanner.classList.add('show');
+    } else {
+      const settings = getSavedSettings();
+      updateConsent(settings.analytics, settings.marketing);
+    }
+  }
   
   // Initialize on page load
   if (document.readyState === 'loading') {
