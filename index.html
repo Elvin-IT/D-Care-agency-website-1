@@ -8,6 +8,21 @@
 	<meta name="keywords" content="homecare services Lilongwe, private nursing Malawi, elderly care, caregiver services, D-Homecare, home health care Malawi" />
     <style>img:is([sizes="auto" i], [sizes^="auto," i]) { contain-intrinsic-size: 3000px 1500px }</style>
 	<title>D-HOMECARE</title>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-83KGNMHPTB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  
+  // Default consent mode to denied
+  gtag('consent', 'default', {
+    'ad_storage': 'denied',
+    'analytics_storage': 'denied'
+  });
+
+  gtag('js', new Date());
+  gtag('config', 'G-83KGNMHPTB');
+</script>
 <link rel='dns-prefetch' href='//cdn.elementor.com' />
 <link rel='dns-prefetch' href='//fonts.googleapis.com' />
 <style id='wp-block-site-logo-inline-css'>
@@ -671,6 +686,8 @@ With our dedicated team, we take a holistic approach to caring for your loved on
 
 
 <p><a href="#contact-title">Contact</a></p>
+<p><a href="privacy-policy.html">Privacy Policy</a></p>
+<p><a href="terms-and-conditions.html">Terms & Conditions</a></p>
 
 
 
@@ -869,5 +886,195 @@ With our dedicated team, we take a holistic approach to caring for your loved on
   </script>
 
   <script src="js/wp-nav-shim.js" defer></script>
+
+<!-- Cookie Consent JavaScript -->
+<script>
+(function() {
+  // Cookie consent management
+  const COOKIE_CONSENT_KEY = 'dhomecare_cookie_consent';
+  const COOKIE_SETTINGS_KEY = 'dhomecare_cookie_settings';
+  
+  // DOM elements
+  const cookieBanner = document.getElementById('cookie-consent');
+  const cookieSettingsModal = document.getElementById('cookie-settings-modal');
+  const acceptBtn = document.getElementById('cookie-accept');
+  const rejectBtn = document.getElementById('cookie-reject');
+  const settingsBtn = document.getElementById('cookie-settings');
+  const modalCloseBtn = document.getElementById('cookie-modal-close');
+  const saveSettingsBtn = document.getElementById('cookie-save-settings');
+  const analyticsCheckbox = document.getElementById('cookie-analytics');
+  const marketingCheckbox = document.getElementById('cookie-marketing');
+  
+  // Check if user has already made a choice
+  function hasUserConsent() {
+    return localStorage.getItem(COOKIE_CONSENT_KEY) !== null;
+  }
+  
+  // Get user's saved settings
+  function getSavedSettings() {
+    const settings = localStorage.getItem(COOKIE_SETTINGS_KEY);
+    return settings ? JSON.parse(settings) : { analytics: false, marketing: false };
+  }
+  
+  // Show cookie banner if no consent exists
+  function showBannerIfNeeded() {
+    if (!hasUserConsent()) {
+      cookieBanner.classList.add('show');
+    } else {
+      // Apply saved consent settings
+      const settings = getSavedSettings();
+      updateConsent(settings.analytics, settings.marketing);
+    }
+  }
+  
+  // Update gtag consent mode
+  function updateConsent(analyticsGranted, marketingGranted) {
+    if (typeof gtag === 'function') {
+      gtag('consent', 'update', {
+        'analytics_storage': analyticsGranted ? 'granted' : 'denied',
+        'ad_storage': marketingGranted ? 'granted' : 'denied'
+      });
+    }
+  }
+  
+  // Save user's consent choice
+  function saveConsent(accepted, analytics = false, marketing = false) {
+    const consent = accepted ? 'accepted' : 'rejected';
+    localStorage.setItem(COOKIE_CONSENT_KEY, consent);
+    
+    const settings = { analytics, marketing };
+    localStorage.setItem(COOKIE_SETTINGS_KEY, JSON.stringify(settings));
+    
+    // Update gtag consent
+    updateConsent(analytics, marketing);
+    
+    // Hide banner
+    cookieBanner.classList.remove('show');
+  }
+  
+  // Accept all cookies
+  function acceptAll() {
+    saveConsent(true, true, true);
+  }
+  
+  // Reject all cookies
+  function rejectAll() {
+    saveConsent(false, false, false);
+  }
+  
+  // Show settings modal
+  function showSettings() {
+    const settings = getSavedSettings();
+    analyticsCheckbox.checked = settings.analytics;
+    marketingCheckbox.checked = settings.marketing;
+    cookieSettingsModal.classList.add('show');
+  }
+  
+  // Hide settings modal
+  function hideSettings() {
+    cookieSettingsModal.classList.remove('show');
+  }
+  
+  // Save settings from modal
+  function saveSettings() {
+    const analytics = analyticsCheckbox.checked;
+    const marketing = marketingCheckbox.checked;
+    saveConsent(true, analytics, marketing);
+    hideSettings();
+  }
+  
+  // Event listeners
+  acceptBtn.addEventListener('click', acceptAll);
+  rejectBtn.addEventListener('click', rejectAll);
+  settingsBtn.addEventListener('click', showSettings);
+  modalCloseBtn.addEventListener('click', hideSettings);
+  saveSettingsBtn.addEventListener('click', saveSettings);
+  
+  // Close modal when clicking outside
+  cookieSettingsModal.addEventListener('click', function(e) {
+    if (e.target === cookieSettingsModal) {
+      hideSettings();
+    }
+  });
+  
+  // Initialize on page load
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', showBannerIfNeeded);
+  } else {
+    showBannerIfNeeded();
+  }
+  
+  // Expose reset function for testing (call from console: window.resetCookieConsent())
+  window.resetCookieConsent = function() {
+    localStorage.removeItem(COOKIE_CONSENT_KEY);
+    localStorage.removeItem(COOKIE_SETTINGS_KEY);
+    console.log('Cookie consent reset. Refresh page to see banner.');
+    location.reload();
+  };
+})();
+</script>
+
+<!-- Cookie Consent Banner -->
+<div id="cookie-consent" class="cookie-consent">
+  <div class="cookie-content">
+    <p class="cookie-message">
+      We use cookies to enhance your experience and analyze site traffic. By clicking "Accept", you consent to our use of cookies as described in our <a href="privacy-policy.html">Privacy Policy</a>.
+    </p>
+    <div class="cookie-buttons">
+      <button id="cookie-accept" class="cookie-btn cookie-btn-accept">Accept</button>
+      <button id="cookie-reject" class="cookie-btn cookie-btn-reject">Reject</button>
+      <button id="cookie-settings" class="cookie-btn cookie-btn-settings">Settings</button>
+    </div>
+  </div>
+</div>
+
+<!-- Cookie Settings Modal -->
+<div id="cookie-settings-modal" class="cookie-modal">
+  <div class="cookie-modal-content">
+    <div class="cookie-modal-header">
+      <h2>Cookie Settings</h2>
+      <button id="cookie-modal-close" class="cookie-modal-close">&times;</button>
+    </div>
+    <div class="cookie-modal-body">
+      <p>We use cookies to enhance your experience and analyze site traffic. You can choose which cookies you allow below.</p>
+      
+      <div class="cookie-option">
+        <label class="cookie-label">
+          <input type="checkbox" id="cookie-necessary" checked disabled>
+          <span class="cookie-checkbox-custom"></span>
+          <div class="cookie-text">
+            <strong>Necessary</strong>
+            <small>Required for the website to function properly</small>
+          </div>
+        </label>
+      </div>
+      
+      <div class="cookie-option">
+        <label class="cookie-label">
+          <input type="checkbox" id="cookie-analytics">
+          <span class="cookie-checkbox-custom"></span>
+          <div class="cookie-text">
+            <strong>Analytics</strong>
+            <small>Help us improve our website by collecting anonymous usage data</small>
+          </div>
+        </label>
+      </div>
+      
+      <div class="cookie-option">
+        <label class="cookie-label">
+          <input type="checkbox" id="cookie-marketing">
+          <span class="cookie-checkbox-custom"></span>
+          <div class="cookie-text">
+            <strong>Marketing</strong>
+            <small>Used to deliver personalized advertisements</small>
+          </div>
+        </label>
+      </div>
+    </div>
+    <div class="cookie-modal-footer">
+      <button id="cookie-save-settings" class="cookie-btn cookie-btn-accept">Save Settings</button>
+    </div>
+  </div>
+</div>
 </body>
 </html>
