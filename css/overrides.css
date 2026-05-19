@@ -1569,3 +1569,224 @@ body.near-footer .whatsapp-float {
     color: white;
   }
 }
+
+/* Responsive Video Embed Styling */
+/* Fluid container for aspect ratio maintenance */
+div[style*="padding-bottom:56.25%"] {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+/* Ensure iframe fills the container */
+div[style*="padding-bottom:56.25%"] iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 10px;
+}
+
+/* Ensure video container maintains proper spacing within service card */
+.wp-block-column.has-accent-background-color div[style*="padding-bottom:56.25%"] {
+  margin-bottom: 15px;
+}
+
+/* Mobile optimization for video */
+@media (max-width: 640px) {
+  div[style*="padding-bottom:56.25%"] {
+    padding-bottom: 56.25%;
+  }
+}
+
+/* Ensure video is visible on all screen sizes */
+@media (min-width: 768px) {
+  div[style*="padding-bottom:56.25%"] {
+    max-height: 400px;
+  }
+}
+
+/* Office Tour Section Styling */
+.office-tour-section {
+  background-color: transparent;
+  border-top: 2px solid #f0f0f0;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.office-video-card {
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Desktop view - make video section larger */
+@media (min-width: 1024px) {
+  .office-video-card {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding: 40px !important;
+  }
+  
+  .office-video-card .wp-block-group {
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  
+  .office-tour-section {
+    padding-top: var(--wp--preset--spacing--xx-large) !important;
+    padding-bottom: var(--wp--preset--spacing--xx-large) !important;
+  }
+  
+  .wp-block-columns.is-layout-flex.wp-container-core-columns-is-layout-f619a8c7 {
+    padding: 0 40px !important;
+  }
+}
+
+/* Tablet view - optimize spacing */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .office-video-card {
+    max-width: 95%;
+    width: 95%;
+  }
+}
+
+/* Mobile view - keep responsive */
+@media (max-width: 767px) {
+  .office-video-card {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+/* Video Player Styling */
+.video-player-wrapper {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Video Container Base */
+.video-container-base {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border-radius: 10px;
+  background-color: #1a1a1a;
+}
+
+/* Video Thumbnail Overlay */
+.video-thumbnail-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(154, 19, 212, 0.8) 0%, rgba(106, 10, 173, 0.9) 100%);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  border-radius: 10px;
+  z-index: 10;
+}
+
+.video-thumbnail-overlay::before {
+  content: "";
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  animation: pulse-button 2s infinite;
+  z-index: 11;
+}
+
+.video-thumbnail-overlay:hover::before {
+  transform: scale(1.1);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+.video-thumbnail-overlay:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+
+/* Video iframe hidden state */
+.video-iframe-hidden {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 10px;
+  display: none;
+}
+
+/* Play button SVG styling with pseudo-element positioning */
+.video-thumbnail-overlay::after {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%236a0bad"><path d="M8 5v14l11-7z"/></svg>');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center 2px;
+  z-index: 12;
+}
+
+/* Ensure thumbnail is centered */
+.video-thumbnail-overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes pulse-button {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* Ensure title and description have proper spacing */
+.office-video-card .wp-block-heading {
+  margin-top: 20px;
+  color: #000;
+}
+
+.office-video-card p {
+  color: #666;
+  margin-top: 10px;
+}
+
+/* Center video section content */
+.wp-block-columns.is-layout-flex.wp-container-core-columns-is-layout-f619a8c7 {
+  justify-content: center;
+}
+
+/* Ensure video card is centered */
+.office-video-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
