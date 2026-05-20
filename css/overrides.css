@@ -243,7 +243,7 @@
 }
 
 /* Viewport calibrations */
-/* Approx. 1440×900 */
+/* Approx. 1440Ã—900 */
 @media (min-width: 1400px) and (max-width: 1500px) {
   #home-sec .wp-block-column.is-vertically-aligned-bottom .wp-block-group.has-background::before {
     width: 500px;
@@ -251,7 +251,7 @@
     transform: translate(-50%, -51%);
   }
 }
-/* Approx. 1366×768 */
+/* Approx. 1366Ã—768 */
 @media (min-width: 1340px) and (max-width: 1380px) {
   #home-sec .wp-block-column.is-vertically-aligned-bottom .wp-block-group.has-background::before {
     width: 480px;
@@ -1570,108 +1570,50 @@ body.near-footer .whatsapp-float {
   }
 }
 
-/* Responsive Video Embed Styling */
-/* Fluid container for aspect ratio maintenance */
-div[style*="padding-bottom:56.25%"] {
-  position: relative;
-  width: 100%;
-  padding-bottom: 56.25%; /* 16:9 aspect ratio */
-  height: 0;
-  overflow: hidden;
-  border-radius: 10px;
-}
+/* ===== Office Tour Video Section Styling ===== */
 
-/* Ensure iframe fills the container */
-div[style*="padding-bottom:56.25%"] iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
-  border-radius: 10px;
-}
-
-/* Ensure video container maintains proper spacing within service card */
-.wp-block-column.has-accent-background-color div[style*="padding-bottom:56.25%"] {
-  margin-bottom: 15px;
-}
-
-/* Mobile optimization for video */
-@media (max-width: 640px) {
-  div[style*="padding-bottom:56.25%"] {
-    padding-bottom: 56.25%;
-  }
-}
-
-/* Ensure video is visible on all screen sizes */
-@media (min-width: 768px) {
-  div[style*="padding-bottom:56.25%"] {
-    max-height: 400px;
-  }
-}
-
-/* Office Tour Section Styling */
+/* Main office tour section */
 .office-tour-section {
   background-color: transparent;
   border-top: 2px solid #f0f0f0;
   border-bottom: 2px solid #f0f0f0;
 }
 
+/* Section header styling */
+.office-section-header h3 {
+  margin-bottom: 10px;
+  color: #000;
+}
+
+.office-section-header p {
+  color: #666;
+  font-size: 16px;
+}
+
+/* Video wrapper - center container */
+.office-video-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* Video card styling */
 .office-video-card {
   max-width: 900px;
-  margin: 0 auto;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* Desktop view - make video section larger */
-@media (min-width: 1024px) {
-  .office-video-card {
-    max-width: 100% !important;
-    width: 100% !important;
-    padding: 40px !important;
-  }
-  
-  .office-video-card .wp-block-group {
-    border: none !important;
-    padding: 0 !important;
-    margin: 0 !important;
-  }
-  
-  .office-tour-section {
-    padding-top: var(--wp--preset--spacing--xx-large) !important;
-    padding-bottom: var(--wp--preset--spacing--xx-large) !important;
-  }
-  
-  .wp-block-columns.is-layout-flex.wp-container-core-columns-is-layout-f619a8c7 {
-    padding: 0 40px !important;
-  }
-}
-
-/* Tablet view - optimize spacing */
-@media (min-width: 768px) and (max-width: 1023px) {
-  .office-video-card {
-    max-width: 95%;
-    width: 95%;
-  }
-}
-
-/* Mobile view - keep responsive */
-@media (max-width: 767px) {
-  .office-video-card {
-    max-width: 100%;
-    width: 100%;
-  }
-}
-
-/* Video Player Styling */
-.video-player-wrapper {
-  position: relative;
+/* Video player container */
+.video-player-container {
   width: 100%;
-  margin: 0 auto;
+  margin-bottom: 20px;
 }
 
-/* Video Container Base */
+/* Video container base - aspect ratio maintenance */
 .video-container-base {
   position: relative;
   width: 100%;
@@ -1682,7 +1624,7 @@ div[style*="padding-bottom:56.25%"] iframe {
   background-color: #1a1a1a;
 }
 
-/* Video Thumbnail Overlay */
+/* Video thumbnail overlay with purple gradient */
 .video-thumbnail-overlay {
   position: absolute;
   top: 0;
@@ -1701,6 +1643,7 @@ div[style*="padding-bottom:56.25%"] iframe {
   z-index: 10;
 }
 
+/* Play button (white circle) */
 .video-thumbnail-overlay::before {
   content: "";
   position: absolute;
@@ -1717,29 +1660,19 @@ div[style*="padding-bottom:56.25%"] iframe {
   z-index: 11;
 }
 
+/* Play button hover effect */
 .video-thumbnail-overlay:hover::before {
   transform: scale(1.1);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
 }
 
+/* Play button focus state for accessibility */
 .video-thumbnail-overlay:focus-visible {
   outline: 2px solid #ffffff;
   outline-offset: 2px;
 }
 
-/* Video iframe hidden state */
-.video-iframe-hidden {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
-  border-radius: 10px;
-  display: none;
-}
-
-/* Play button SVG styling with pseudo-element positioning */
+/* Play icon (SVG) */
 .video-thumbnail-overlay::after {
   content: "";
   position: absolute;
@@ -1752,13 +1685,19 @@ div[style*="padding-bottom:56.25%"] iframe {
   z-index: 12;
 }
 
-/* Ensure thumbnail is centered */
-.video-thumbnail-overlay {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* Video iframe - hidden until clicked */
+.video-iframe-hidden {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 10px;
+  display: none;
 }
 
+/* Pulse animation for play button */
 @keyframes pulse-button {
   0%, 100% {
     transform: scale(1);
@@ -1768,8 +1707,8 @@ div[style*="padding-bottom:56.25%"] iframe {
   }
 }
 
-/* Ensure title and description have proper spacing */
-.office-video-card .wp-block-heading {
+/* Video card title and description */
+.office-video-card h5 {
   margin-top: 20px;
   color: #000;
 }
@@ -1779,14 +1718,23 @@ div[style*="padding-bottom:56.25%"] iframe {
   margin-top: 10px;
 }
 
-/* Center video section content */
-.wp-block-columns.is-layout-flex.wp-container-core-columns-is-layout-f619a8c7 {
-  justify-content: center;
+/* Mobile responsive - keep flexible */
+@media (max-width: 767px) {
+  .office-video-card {
+    max-width: 100%;
+    width: 100%;
+    padding: 0 10px;
+  }
+  
+  .office-section-header {
+    padding: 0 10px;
+  }
 }
 
-/* Ensure video card is centered */
-.office-video-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+/* Tablet responsive */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .office-video-card {
+    max-width: 95%;
+    width: 95%;
+  }
 }
